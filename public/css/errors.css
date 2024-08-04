@@ -1,0 +1,12 @@
+
+
+.error__notMajor {
+    color: #d9d8dcc6;
+    /* font-style: italic; */
+    font-size: 1.75rem;
+    font-weight: 200;
+}
+.error__notMajor::after{
+    font-family:'bootstrap-icons';
+    content: '\00a0 \F708';
+}

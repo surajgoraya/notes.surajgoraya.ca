@@ -16,7 +16,8 @@ module.exports = function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
-		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
+		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
+		"./public/favicon.png": "/"
 	});
 
 	// Run Eleventy when these files change:
@@ -96,6 +97,13 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	})
+	
+	eleventyConfig.addGlobalData('generated', () => {
+		let now = new Date();
+		return new Intl.DateTimeFormat(
+		  'en-CA', { dateStyle: 'short', timeStyle: 'long' }
+		).format(now);
+	  });
 
 	// Features to make your build faster (when you need them)
 
@@ -141,4 +149,5 @@ module.exports = function(eleventyConfig) {
 		// folder name and does **not** affect where things go in the output folder.
 		pathPrefix: "/",
 	};
+	
 };

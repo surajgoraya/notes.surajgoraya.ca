@@ -1,0 +1,12 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: archive
+  order: 2
+---
+<h2>archive</h2>
+
+{% set postslist = collections.notes %}
+{% include "postslist.njk" %}
+
+<p>or, find by <a href="/tags/">tags</a></p>
